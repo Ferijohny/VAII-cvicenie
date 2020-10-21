@@ -25,11 +25,21 @@ nav
     color: white;
 }
 
-.container {
+.container2 {
     margin-left: 10%;
 }
-
-
+.card
+{
+    background: rgba(231, 231, 231, 0) ;
+}
+.card-header{
+    background: rgba(231, 231, 231, 0.6) ;
+    backdrop-filter: blur(30px);
+}
+.card-body{
+    background: rgba(231, 231, 231, 0.3);
+    backdrop-filter: blur(30px);
+}
 .float-right {
     float: right;
     margin-top: 5px;
