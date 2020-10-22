@@ -3,6 +3,11 @@
     width: 50%;
     padding: 10px;
 }
+
+iframe
+{
+    border: 0px;
+}
 body {
     /*background-color: #E6FAE0;*/
 
@@ -25,7 +30,11 @@ nav
     color: white;
 }
 
-.container2 {
+.v-a{
+    vertical-align: inherit;
+}
+
+.margin10 {
     margin-left: 10%;
 }
 .card
@@ -45,4 +54,10 @@ nav
     margin-top: 5px;
     margin-right: 10%;
     width: 40%;
+}
+
+@media (max-width: 760px){
+    .card4 {
+        max-width: 540px;
+    }
 }
