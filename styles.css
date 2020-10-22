@@ -1,6 +1,6 @@
 .center {
     margin: auto;
-    width: 50%;
+    width: 100%;
     padding: 10px;
 }
 
@@ -8,18 +8,24 @@ iframe
 {
     border: 0px;
 }
-body {
-    /*background-color: #E6FAE0;*/
 
-    background-image: url("obr4.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
-}
 nav
 {
-    backdrop-filter: blur(12px);
+    /*backdrop-filter: blur(12px);*/
     background: rgba(52, 81, 13, 0.5)
+}
+html, body{
+    width: 100%;
+}
+body{
+    background-image: url("obr4.jpg");
+    max-width: 100%;
+    height: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+
 }
 .bg-nasa
 {
@@ -29,25 +35,17 @@ nav
 .white{
     color: white;
 }
-
-.v-a{
-    vertical-align: inherit;
-}
-
-.margin10 {
-    margin-left: 10%;
-}
 .card
 {
     background: rgba(231, 231, 231, 0) ;
 }
 .card-header{
     background: rgba(231, 231, 231, 0.6) ;
-    backdrop-filter: blur(30px);
+    /*backdrop-filter: blur(30px);*/
 }
 .card-body{
     background: rgba(231, 231, 231, 0.3);
-    backdrop-filter: blur(30px);
+    /*backdrop-filter: blur(30px);*/
 }
 .float-right {
     float: right;
@@ -56,8 +54,9 @@ nav
     width: 40%;
 }
 
-@media (max-width: 760px){
-    .card4 {
-        max-width: 540px;
-    }
+@media (min-width: 576px){
+    .card-deck .card {
+
+        flex: auto;
+}
 }
