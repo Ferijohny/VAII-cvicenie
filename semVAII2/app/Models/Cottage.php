@@ -12,7 +12,10 @@ class Cottage extends Model
 
     protected $fillable = [
         'name',
-        'img_path',
+        'image',
         'desc',
+        'locality',
+        'num_ppl',
+        'owner'
     ];
 }

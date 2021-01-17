@@ -1,11 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
 /*!
- * Bootstrap v4.5.3 (https://getbootstrap.com/)
- * Copyright 2011-2020 The Bootstrap Authors
- * Copyright 2011-2020 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
+* Bootstrap v4.5.3 (https://getbootstrap.com/)
+* Copyright 2011-2020 The Bootstrap Authors
+                      * Copyright 2011-2020 Twitter, Inc.
+* Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+*/
 
 :root {
   --blue: #3490dc;
@@ -3323,10 +3323,6 @@ fieldset:disabled a.btn {
 .btn-block {
   display: block;
   width: 100%;
-}
-
-.btn-block + .btn-block {
-  margin-top: 0.5rem;
 }
 
 input[type=submit].btn-block,

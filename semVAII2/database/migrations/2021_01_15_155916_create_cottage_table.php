@@ -16,8 +16,11 @@ class CreateCottageTable extends Migration
         Schema::create('cottage', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('img_path');
+            $table->string('image')->nullable();
             $table->string('desc');
+            $table->string('locality');
+            $table->integer('num_ppl');
+            $table->string('owner');
             $table->timestamps();
         });
     }

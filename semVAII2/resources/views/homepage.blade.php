@@ -4,42 +4,57 @@
 <link href="{{ asset('css/card.css') }}" rel="stylesheet">
 <div class="container">
 {{--TU TREBA PRECHADZAT KARTICKY--}}
+    @if(Session::has('cottage_message'))
+        <div id="alert" class="alert alert-success" role="alert">
+            {{Session::get('cottage_message')}}
+        </div>
+        <script>
+            function alert() {
+                var alert = document.getElementById("alert")
+                alert.remove();
+            }
+            setTimeout("alert()",3000);
+        </script>
+    @endif
     @foreach($cottage as $ch)
 <article class="card_background">
     <div class="container">
         <div class="row">
             <div class="col-sm-4 center_img">
                 <a href="">
-                    <img class="card-img-size" src="{{$ch->img_path}}">
+                    @if($ch->image != '')
+                    <img class="card-img-size" src="{{$ch->image}}">
+
+                        @else
+                        <img class="card-img-size" src="img_cottage/01.jpg">
+                    @endif
                 </a>
             </div>
 
             <div class="col-sm">
                 <div class="col-sm offset-0 padr">
                     <div class="row">
-                        <h2 class="col-sm-6">NAZOVCHATY</h2>
-                        <div class="btn-group btn-group-toggle col-sm-6" data-toggle="buttons">
-                            <label class="btn btn-secondary active">
-                                <input type="radio" name="options" id="option1" autocomplete="off" checked> Active
-                            </label>
-                            <label class="btn btn-secondary active">
-                                <input type="radio" name="options" id="option1" autocomplete="off" checked> Active
-                            </label>
+                        <h2 class="col-sm-6">{{$ch->name}}</h2>
+                        @can('update', [\App\Models\User::class, $ch->owner])
+                        <div class="btn-group col-sm-6">
+                                <a class="btn btn-block btn-success" href="{{route('cottage.edit',$ch->id)}}" title="Edit">Edit</a>
+                                <a class="btn  btn-block btn-danger" href="{{route('cottage.delete',$ch->id)}}" title="Delete" data-method="DELETE">Delete</a>
                         </div>
+                        @endcan
                     </div>
 
                     <div class="row">
                         <div class="col-sm-6">
-                            <a>UMIESTNENIE</a>
+                            <a>Lokalita: {{$ch->locality}}</a>
                         </div>
                         <div class="col-sm-6">
-                            POCET OSOB
+                            Pocet osob: {{$ch->num_ppl}}
                         </div>
                     </div>
-                    <p>DESC</p>
+                    <p>{{$ch->desc}}</p>
 
             </div>
-                <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+                    <a type="button" href="{{route('cottage.show',[$ch->id])}}" class="btn btn-secondary btn-lg btn-block">Block level button</a>
         </div>
     </div>
     </div>

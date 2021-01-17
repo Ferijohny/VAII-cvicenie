@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CottageController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,10 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Auth::routes();
-
-Route::get('/', [App\Http\Controllers\CottageController::class, 'index'])->name('homepage');
-
+Route::get('/loginsuccess', function (){
+  return view('loginsuccess');
+});
+Route::get('/', [CottageController::class, 'index'])->name('homepage');
+Route::resource('cottage', CottageController::class);
+Route::get('{cottage}/delete',[CottageController::class, 'destroy'])->name('cottage.delete');
+Route::post('cottage/{cottage}',[CottageController::class, 'show'])->name('cottage.show');
 Route::group(['middleware' => ['auth']],function(){
+
 Route::resource('user', UserController::class);
 Route::get('user/{user}/delete',[UserController::class, 'destroy'])->name('user.delete');
 });
