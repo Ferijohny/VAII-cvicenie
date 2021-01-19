@@ -18,11 +18,11 @@
     </div>
     <div class="form-group">
         <label for="locality">Locality</label>
-        <input type="locality" class="form-control" id="locality" name="locality" placeholder="locality" value="{{old('desc', @$model->locality )}}">
+        <input type="locality" class="form-control" id="locality" name="locality" placeholder="locality" value="{{old('locality', @$model->locality )}}">
     </div>
     <div class="form-group">
         <label for="num_ppl">Maximum number of people</label>
-        <input type="num_ppl" class="form-control" id="num_ppl" name="num_ppl" placeholder="Number of people" value="{{old('desc', @$model->num_ppl )}}">
+        <input type="num_ppl" class="form-control" id="num_ppl" name="num_ppl" placeholder="Number of people" value="{{old('num_ppl', @$model->num_ppl )}}">
     </div>
     <label>Image</label>
     <div class="form-group">

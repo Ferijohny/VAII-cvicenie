@@ -3,11 +3,6 @@
     font-family: arial,helvetica,sans-serif;
 }
 
-.card-img-size{
-    height:329px;
-    width: 438px;
-}
-
 .card_background {
     margin: 2vh;
     padding: 2vh;
@@ -20,14 +15,16 @@ p{
     padding-right: 10px !important;
     padding-bottom: 3px;
 }
-@media (min-width: 768px)
+@media (min-width: 993px)
 {
-    .btn-secondary {
-        margin-top: 25px;
+    .alignbottom {
+        position: absolute;
+        bottom : 0;
+        right: 0;
     }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 992px) {
     .center_img{
         text-align: center !important;
         flex: 0 0 100%;
@@ -46,8 +43,8 @@ p{
 @media (max-width: 375px)
 {
     .card-img-size{
-        height: 135px;
-        width: 180px;
+        height: 135px!important;
+        width: 180px!important;
     }
     .padr div {
         font-size: 75%;

@@ -43,27 +43,25 @@ class CottageController extends Controller
     {
         $cottage = new Cottage();
 
-        if($request->hasFile('file')){
+
+        if($this->validateRequest($request)){
+            $request->validate([
+                'file' => 'image|max:2048'
+            ]);
             $image=$request->file('file');
             $image_name= 'img_cottage/'. time() . '.' . $image->extension();
             $image->move(public_path('img_cottage'),$image_name);
             $cottage->image = $image_name;
+
         }
-
-
-
         $cottage->name = $request->name;
         $cottage->desc = $request->desc;
         $cottage->locality = $request->locality;
         $cottage->num_ppl = $request->num_ppl;
         $cottage->owner = Auth::user()->email;
 
-
-
         $cottage->save();
         return redirect()->route('homepage')->with('cottage_message', 'cottage was successfully added');
-
-
     }
 
     /**
@@ -103,7 +101,10 @@ class CottageController extends Controller
     public function update(Request $request, Cottage $cottage)
     {
         $image_name='';
-        if($request->hasFile('file')){
+        if($this->validateRequest($request)){
+            $request->validate([
+                'file' => 'image|max:2048'
+            ]);
             $image=$request->file('file');
             $image_name= 'img_cottage/'. time() . '.' . $image->extension();
             $image->move(public_path('img_cottage'),$image_name);
@@ -140,5 +141,15 @@ class CottageController extends Controller
         return redirect()->route('homepage')->with('cottage_message', 'cottage was successfully removed');;
     }
 
+
+    private function validateRequest(Request $request){
+        $request->validate([
+            'name'=>'required',
+            'desc'=>'required',
+            'locality'=>'required|max:64',
+            'num_ppl' =>'required|numeric'
+        ]);
+        return $request->hasFile('file');
+    }
 
 }

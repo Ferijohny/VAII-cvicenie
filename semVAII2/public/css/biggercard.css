@@ -1,0 +1,29 @@
+.card-img-size{
+    height:329px;
+    width: 438px;
+}
+.text-right{
+    padding-right: 20px;
+}
+@media (max-width: 575px){
+    .card-img-size{
+        height: 247px;
+        width: 329px;
+    }
+}
+@media (max-width: 440px){
+    .card-img-size{
+        height:188px;
+        width: 250px;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-sm-6 {
+        flex: 0 0 55%;
+        max-width: 55%;
+    }
+}
+
+
+

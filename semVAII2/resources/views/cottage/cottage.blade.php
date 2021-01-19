@@ -2,6 +2,7 @@
 
 @section('content')
     <link href="{{ asset('css/cottage.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/biggercard.css') }}" rel="stylesheet">
     <div class="container">
 {{--        --}}{{--TU TREBA PRECHADZAT KARTICKY--}}
 {{--        @if(Session::has('cottage_message'))--}}
@@ -20,7 +21,7 @@
             <article class="card_background">
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-7 center_img">
+                        <div class="col-sm-6 center_img">
                             <a href="">
                                 @if($cottage->image != '')
                                     <img class="card-img-size" src="../{{$cottage->image}}">
@@ -36,7 +37,7 @@
                                 <div class="row">
                                     <h2 class="col-sm-6">{{$cottage->name}}</h2>
                                     @can('update', [\App\Models\User::class, $cottage->owner])
-                                        <div class="btn-group col-sm-6">
+                                        <div class="btn-group col-sm">
                                             <a class="btn btn-block btn-success" href="{{route('cottage.edit',$cottage->id)}}" title="Edit">Edit</a>
                                             <a class="btn  btn-block btn-danger" href="{{route('cottage.delete',$cottage->id)}}" title="Delete" data-method="DELETE">Delete</a>
                                         </div>
@@ -52,8 +53,11 @@
                                     </div>
                                 </div>
                                 <p>{{$cottage->desc}}</p>
+                                    <div class="text-right">Kontakt:</div>
+                                <div class="text-right">{{$cottage->owner}}</div>
 
                             </div>
+                            <a type="button" href="{{route('reserve',[$cottage->id,$cottage->owner])}}" class="btn btn-success btn-lg btn-block alignbottom">Reserve</a>
                         </div>
                     </div>
                 </div>

@@ -2,6 +2,7 @@
 
 @section('content')
 <link href="{{ asset('css/card.css') }}" rel="stylesheet">
+<link href="{{ asset('css/cottage.css') }}" rel="stylesheet">
 <div class="container">
 {{--TU TREBA PRECHADZAT KARTICKY--}}
     @if(Session::has('cottage_message'))
@@ -45,16 +46,14 @@
 
                     <div class="row">
                         <div class="col-sm-6">
-                            <a>Lokalita: {{$ch->locality}}</a>
+                            <p>Lokalita: {{$ch->locality}}</p>
                         </div>
                         <div class="col-sm-6">
                             Pocet osob: {{$ch->num_ppl}}
                         </div>
                     </div>
-                    <p>{{$ch->desc}}</p>
-
             </div>
-                    <a type="button" href="{{route('cottage.show',[$ch->id])}}" class="btn btn-secondary btn-lg btn-block">Block level button</a>
+                    <a type="button" href="{{route('cottage.show',[$ch->id])}}" class="btn btn-success btn-lg btn-block alignbottom">More information</a>
         </div>
     </div>
     </div>

@@ -6,6 +6,7 @@ use App\Models\Cottage;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class UserPolicy
 {
@@ -29,9 +30,11 @@ class UserPolicy
      * @param User $model
      * @return mixed
      */
-    public function view(User $user, User $model)
+    public function view(User $user)
     {
-        return true;
+        $cottageinsertions = DB::table('cottage')->where('owner',Auth::user()->email)->get();
+        if (count($cottageinsertions) > 0) return true;
+        else return false;
     }
 
     /**
@@ -42,7 +45,7 @@ class UserPolicy
      */
     public function create(User $user)
     {
-        return Auth::user()->name == 'admin';
+        return Auth::user()->email == 'admin@admin.com';
     }
 
     /**
