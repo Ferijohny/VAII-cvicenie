@@ -29,15 +29,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-//        $user = User::paginate(25);
-//        $grid = new Datagrid($user, $request->get('f',[]));
-//        $grid->setColumn('name','Full name')
-//            ->setColumn('email', 'email address')
-//        ->setActionColumn(['wrapper' => function($value,$row){
-//            return '<a href="' . route('user.edit',[$row->id]).'" title="Edit" class="btn btn-sm btn-primary">Edit</a>
-//            <a href="' . route('user.delete',[$row->id]).'" title="Delete" data-method="DELETE" class="btn btn-sm btn-danger" data-confirm="Are you sure?">Delete</a>';
-//        }]);
-//        return view('user.index',['grid'=>$grid]);
+
         return view('user.index');
     }
 
@@ -129,14 +121,17 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        $posts = cottage::where('owner',$user->email)->get();
-
-        foreach ($posts as $post)
-        {
-            if($post->image!=''){
-                File::delete(public_path("$post->image"));
+        $posts = Cottage::where('owner',$user->email)->get();
+        $tabula = DB::table('table_reservations')->where('customer_id',$user->id);
+        $tabula->delete();
+        if(count($posts)>0){
+            foreach ($posts as $post)
+            {
+                if($post->image!=''){
+                    File::delete(public_path("$post->image"));
+                }
+                $post->delete();
             }
-            $post->delete();
         }
 
         $user->delete();
@@ -144,9 +139,22 @@ class UserController extends Controller
     }
 
     public function insertions(){
+        $tabula = DB::table('users')
+            ->select('users.name as customer','users.email','cottage.name')
+            ->join('table_reservations','table_reservations.customer_id', '=','users.id')
+            ->join('cottage','cottage.id','=','table_reservations.cottage_id')
+            ->get();
+
+
+
         $table = DB::table('cottage')->where('owner',Auth::user()->email)->get();
-        return view('user.insertions')->with('table',$table);
+        return view('user.insertions')->with('table',$table)->with('customers',$tabula);
     }
+
+
+
+
+
 
     function action(Request $request)
     {

@@ -40,12 +40,33 @@
                                     </div>
                                 </div>
                             </div>
-                            <a type="button" href="{{route('cottage.show',[$ch->id])}}" class="btn btn-success btn-lg btn-block alignbottom">More information</a>
                         </div>
+                    </div>
+                    <div>
+                        <table class="table table-striped table-bordered">
+
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                            </tr>
+                            </thead>
+                            @foreach($customers as $c)
+                                @if($c->name == $ch->name)
+                                        <tbody>
+                                        <td>
+                                            {{$c->customer}}
+                                        </td>
+                                        <td>
+                                            {{$c->email}}
+                                        </td>
+                                        </tbody>
+                                @endif
+                            @endforeach
+                        </table>
                     </div>
                 </div>
             </article>
         @endforeach
     </div>
-
 @endsection

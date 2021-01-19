@@ -4,19 +4,6 @@
     <link href="{{ asset('css/cottage.css') }}" rel="stylesheet">
     <link href="{{ asset('css/biggercard.css') }}" rel="stylesheet">
     <div class="container">
-{{--        --}}{{--TU TREBA PRECHADZAT KARTICKY--}}
-{{--        @if(Session::has('cottage_message'))--}}
-{{--            <div id="alert" class="alert alert-success" role="alert">--}}
-{{--                {{Session::get('cottage_message')}}--}}
-{{--            </div>--}}
-{{--            <script>--}}
-{{--                function alert() {--}}
-{{--                    var alert = document.getElementById("alert")--}}
-{{--                    alert.remove();--}}
-{{--                }--}}
-{{--                setTimeout("alert()",3000);--}}
-{{--            </script>--}}
-{{--        @endif--}}
 
             <article class="card_background">
                 <div class="container">
@@ -62,6 +49,5 @@
                     </div>
                 </div>
             </article>
-        {{--TU TREBA PRECHADZAT KARTICKY--}}
     </div>
 @endsection

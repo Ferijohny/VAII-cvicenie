@@ -912,75 +912,107 @@ SELECT|sys.sys_config:null
     </column>
     <column id="267" parent="236" name="customer_id">
       <Position>2</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="268" parent="236" name="cottage_id">
       <Position>3</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="269" parent="236" name="created_at">
+    <column id="269" parent="236" name="owner_id">
       <Position>4</Position>
-      <DataType>timestamp|0s</DataType>
+      <DataType>int(10) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="270" parent="236" name="updated_at">
+    <column id="270" parent="236" name="created_at">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <key id="271" parent="236" name="PRIMARY">
+    <column id="271" parent="236" name="updated_at">
+      <Position>6</Position>
+      <DataType>timestamp|0s</DataType>
+    </column>
+    <index id="272" parent="236" name="table_reservations_customer_id_foreign">
+      <ColNames>customer_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="273" parent="236" name="table_reservations_cottage_id_foreign">
+      <ColNames>cottage_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="274" parent="236" name="table_reservations_owner_id_foreign">
+      <ColNames>owner_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="275" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="272" parent="237" name="id">
+    <foreign-key id="276" parent="236" name="table_reservations_customer_id_foreign">
+      <ColNames>customer_id</ColNames>
+      <RefTableName>users</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="277" parent="236" name="table_reservations_cottage_id_foreign">
+      <ColNames>cottage_id</ColNames>
+      <RefTableName>cottage</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="278" parent="236" name="table_reservations_owner_id_foreign">
+      <ColNames>owner_id</ColNames>
+      <RefTableName>users</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="279" parent="237" name="id">
       <Position>1</Position>
-      <DataType>bigint(20) unsigned|0s</DataType>
+      <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="273" parent="237" name="name">
+    <column id="280" parent="237" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="274" parent="237" name="email">
+    <column id="281" parent="237" name="email">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="275" parent="237" name="email_verified_at">
+    <column id="282" parent="237" name="email_verified_at">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <column id="276" parent="237" name="password">
+    <column id="283" parent="237" name="password">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="277" parent="237" name="remember_token">
+    <column id="284" parent="237" name="remember_token">
       <Position>6</Position>
       <DataType>varchar(100)|0s</DataType>
     </column>
-    <column id="278" parent="237" name="created_at">
+    <column id="285" parent="237" name="created_at">
       <Position>7</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <column id="279" parent="237" name="updated_at">
+    <column id="286" parent="237" name="updated_at">
       <Position>8</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <index id="280" parent="237" name="users_email_unique">
+    <index id="287" parent="237" name="users_email_unique">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="281" parent="237" name="PRIMARY">
+    <key id="288" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="282" parent="237" name="users_email_unique">
+    <key id="289" parent="237" name="users_email_unique">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>users_email_unique</UnderlyingIndexName>
     </key>

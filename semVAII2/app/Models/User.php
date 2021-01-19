@@ -33,6 +33,13 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+
+    public function owner(){
+        return $this->hasMany(Reservation::class,'owner_id');
+    }
+    public function reservations(){
+        return $this->hasMany(Reservation::class,'customer_id');
+    }
     /**
      * The attributes that should be cast to native types.
      *

@@ -16,4 +16,17 @@ class Reservation extends Model
             'owner_id',
             'cottage_id'
     ];
+
+
+    public function owners(){
+        return $this->belongsTo(User::class, 'owner_id','id');
+    }
+
+    public function customers(){
+        return $this->belongsTo(User::class, 'customer_id','id');
+    }
+
+    public function hasCottages(){
+        return $this->hasMany(Cottage::class,'id');
+    }
 }

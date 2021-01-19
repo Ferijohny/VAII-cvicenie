@@ -18,4 +18,8 @@ class Cottage extends Model
         'num_ppl',
         'owner'
     ];
+
+    public function hasReservations(){
+        return $this->belongsTo(Reservation::class,'id');
+    }
 }
