@@ -24,10 +24,10 @@ Route::get('/loginsuccess', function (){
 Route::get('/', [CottageController::class, 'index'])->name('homepage');
 Route::resource('cottage', CottageController::class);
 Route::get('{cottage}/delete',[CottageController::class, 'destroy'])->name('cottage.delete');
+
 Route::post('cottage/{cottage}',[CottageController::class, 'show'])->name('cottage.show');
 
-Route::get('cottage/{cottage}/{owner}',[ReservationController::class, 'reserve'])->name('reserve');
-
+Route::post('cottage/{id}/add',[ReservationController::class, 'reserve']);
 
 Route::get('insertions', [UserController::class,'insertions'])->name('user.insertions');
 

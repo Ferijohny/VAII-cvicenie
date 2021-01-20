@@ -29,4 +29,7 @@ class Reservation extends Model
     public function hasCottages(){
         return $this->hasMany(Cottage::class,'id');
     }
+    public function hasEquipment(){
+        return $this->hasMany(Equipment::class, 'reservation_id','id');
+    }
 }

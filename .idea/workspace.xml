@@ -22,18 +22,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6be7731-f271-4fb0-ada2-19df1defa6e7" name="Default Changelist" comment="Pridanie novych blade + entita + nejake upravy s css">
+    <list default="true" id="c6be7731-f271-4fb0-ada2-19df1defa6e7" name="Default Changelist" comment="Zadefinovanie vztahov v db + oprava delete user">
+      <change afterPath="$PROJECT_DIR$/semVAII2/app/Models/Equipment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/semVAII2/database/migrations/2021_01_19_201701_create_table_equipment.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/semVAII2/public/img_cottage/1611079259.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/semVAII2/public/img_cottage/1611094909.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/851a7fd6-5ec5-45f4-8b9e-7100b02f2d11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/851a7fd6-5ec5-45f4-8b9e-7100b02f2d11.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/semVAII2/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/semVAII2/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/semVAII2/app/Models/Cottage.php" beforeDir="false" afterPath="$PROJECT_DIR$/semVAII2/app/Models/Cottage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/semVAII2/app/Http/Controllers/ReservationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/semVAII2/app/Http/Controllers/ReservationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/semVAII2/app/Models/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/semVAII2/app/Models/Reservation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/semVAII2/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/semVAII2/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/semVAII2/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/semVAII2/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/semVAII2/database/migrations/2021_01_19_110144_create_table_reservations.php" beforeDir="false" afterPath="$PROJECT_DIR$/semVAII2/database/migrations/2021_01_19_110144_create_table_reservations.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/semVAII2/resources/views/cottage/cottage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/semVAII2/resources/views/cottage/cottage.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/semVAII2/resources/views/user/insertions.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/semVAII2/resources/views/user/insertions.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/semVAII2/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/semVAII2/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +202,7 @@
       <workItem from="1609098699704" duration="3382000" />
       <workItem from="1610636790561" duration="28933000" />
       <workItem from="1610734350285" duration="53086000" />
-      <workItem from="1610960314791" duration="63166000" />
+      <workItem from="1610960314791" duration="84349000" />
     </task>
     <task id="LOCAL-00001" summary="druhy pokus o prechod na laravel">
       <created>1609098889929</created>
@@ -240,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611068441342</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Zadefinovanie vztahov v db + oprava delete user">
+      <created>1611083818787</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1611083818787</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,7 +271,9 @@
     <MESSAGE value="Upravy podľa prednášky, pridanie homepage + nova tabulka cottage" />
     <MESSAGE value="Pridanie novych blade pre cottage a uprava cottagecontroller + mensi scriptik" />
     <MESSAGE value="Pridanie novych blade + entita + nejake upravy s css" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pridanie novych blade + entita + nejake upravy s css" />
+    <MESSAGE value="Zadefinovanie vztahov v db" />
+    <MESSAGE value="Zadefinovanie vztahov v db + oprava delete user" />
+    <option name="LAST_COMMIT_MESSAGE" value="Zadefinovanie vztahov v db + oprava delete user" />
   </component>
   <component name="WindowStateProjectService">
     <state x="395" y="91" key="#Inspections" timestamp="1610642142519">
@@ -292,10 +300,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="621" y="115" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1609098812115" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1611068482562">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1611083823247">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.8.1920.1040@0.0.1536.824" timestamp="1611068482562" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.8.1920.1040@0.0.1536.824" timestamp="1611083823247" />
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1610911716788" />
     <state x="643" y="300" width="312" height="243" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1611076667740">
       <screen x="0" y="0" width="1536" height="824" />
@@ -306,10 +314,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824/-1920.8.1920.1040@0.0.1536.824" timestamp="1610985861881" />
-    <state x="712" y="122" width="672" height="678" key="search.everywhere.popup" timestamp="1611083047742">
+    <state x="712" y="122" width="672" height="678" key="search.everywhere.popup" timestamp="1611128442788">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="712" y="122" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-1920.8.1920.1040@0.0.1536.824" timestamp="1611083047742" />
+    <state x="712" y="122" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-1920.8.1920.1040@0.0.1536.824" timestamp="1611128442788" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1611004606414" />
   </component>
 </project>

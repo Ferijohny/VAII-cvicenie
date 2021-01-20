@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cottage;
+use App\Models\Equipment;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -9,31 +11,52 @@ use Illuminate\Support\Facades\DB;
 
 class ReservationController extends Controller
 {
-    public function reserve($cottageID, $owner)
+    public function reserve($id,Request $request)
     {
+
+
+
         $user = Auth::user();
-        //dd($owner);
+        //
         //dd($user->email);
-        $ownerID = DB::table('users')->where('email', $owner)->get();
+        $cottage = DB::table('cottage')->where('id',$id)->get();
+
+        $ownerID = DB::table('users')->where('email', $cottage[0]->owner)->get();
         if ($user != null) {
-            if($this->reserved($cottageID, $user->id))
+            if($this->reserved($id, $user->id))
             {
                 if ($user->id != $ownerID[0]->id ) {
                     $reservation = new Reservation();
                     $reservation->customer_id = $user->id;
-                    $reservation->cottage_id = $cottageID;
+                    $reservation->cottage_id = $id;
                     $reservation->owner_id = $ownerID[0]->id;
                     $reservation->save();
-                    return redirect()->route('homepage')->with('cottage_message', 'cottage was successfully reserved');
+
+//                    DB::table('equipment')->insert(array('mower'=>true,
+//                        'television'=>false,
+//                        'microwave'=>false,
+//                        'blankets'=>false,
+//                        'reservation_id'=>'69'));
+//                    $equipment = new Equipment();
+//
+//                    $equipment->mower = 1;
+//                    $equipment->television = 0;
+//                    $equipment->microwave =  1;
+//                    $equipment->blankets = 0;
+//                    $equipment->reservation_id = 65;
+//                    $equipment->save();
+
+
+                    echo redirect()->route('homepage')->with('cottage_message', 'cottage was successfully reserved');
                 } else {
-                    return redirect()->route('homepage')->with('cottage_message', 'u are owner of cottage u cant reserve');
+                    echo redirect()->route('homepage')->with('cottage_message', 'u are owner of cottage u cant reserve');
                 }
             }
             else {
-                return redirect()->route('homepage')->with('cottage_message', 'u have already reserved this cottage');
+                echo redirect()->route('homepage')->with('cottage_message', 'u have already reserved this cottage');
             }
         } else {
-            return redirect()->route('homepage')->with('cottage_message', 'u have to login to reserve');
+            echo redirect()->route('homepage')->with('cottage_message', 'u have to login to reserve');
         }
     }
 
